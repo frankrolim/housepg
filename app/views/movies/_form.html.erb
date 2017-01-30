@@ -68,6 +68,18 @@
     <%= f.text_field :imdb_rating, class: "form-control" %>
   </div>
 
+  <div class="field form-group">
+    <%= f.label :directors %>
+    <%= f.collection_select :director_ids, Director.all, :id, :name, {},
+    {multiple: true, class: "form-control"} %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :actors %>
+    <%= f.collection_select :actor_ids, Actor.all, :id, :name, {},
+    {multiple: true, class: "form-control"} %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Enviar", class: "btn" %>
   </div>

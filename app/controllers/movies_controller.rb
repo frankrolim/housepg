@@ -62,7 +62,7 @@ class MoviesController < ApplicationController
   end
 
   def search
-    @movies = Movie.search(params[:query])    
+    @movies = Movie.search(params[:query])
   end
 
   private
@@ -73,6 +73,6 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:title, :year, :runtime, :genre, :plot, :language, :country, :awards, :poster_url, :imdb_id, :imdb_rating)
+      params.require(:movie).permit(:title, :year, :runtime, :genre, :plot, :language, :country, :awards, :poster_url, :imdb_id, :imdb_rating, :director_ids => [], :actor_ids => [])
     end
 end
