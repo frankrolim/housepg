@@ -1,3 +1,5 @@
+
+
 <%= form_for(movie) do |f| %>
   <% if movie.errors.any? %>
     <div id="error_explanation">
@@ -11,62 +13,62 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :year %>
-    <%= f.number_field :year %>
+    <%= f.number_field :year, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :runtime %>
-    <%= f.text_field :runtime %>
+    <%= f.text_field :runtime, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :genre %>
-    <%= f.text_field :genre %>
+    <%= f.text_field :genre, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :plot %>
-    <%= f.text_area :plot %>
+    <%= f.text_area :plot, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :language %>
-    <%= f.text_field :language %>
+    <%= f.text_field :language, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :country %>
-    <%= f.text_field :country %>
+    <%= f.text_field :country, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :awards %>
-    <%= f.text_field :awards %>
+    <%= f.text_field :awards, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :poster_url %>
-    <%= f.text_field :poster_url %>
+    <%= f.text_field :poster_url, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :imdb_id %>
-    <%= f.text_field :imdb_id %>
+    <%= f.text_field :imdb_id, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :imdb_rating %>
-    <%= f.text_field :imdb_rating %>
+    <%= f.text_field :imdb_rating, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Enviar", class: "btn" %>
   </div>
 <% end %>
