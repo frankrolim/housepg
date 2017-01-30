@@ -1,33 +1,46 @@
-
-<% unless notice.nil? %>
-  <div id="notice" class="alert alert-info"><%= notice %></div>
-<% end %>
+<p id="notice"><%= notice %></p>
 
 <h1>Movies</h1>
 
-<div class="card-columns">
-  <% @movies.each do |movie| %>
-    <div class="card">
-      <img class="card-img-top" src="<%= movie.poster_url %>" width="100%" alt="<%= movie.title %>">
-      <div class="card-block">
-        <h4 class="card-title">
-          <%= movie.title %>
-        </h4>
-        <h6><small>IMDB Rating: <%= movie.imdb_rating %></small></h6>
-        <dl class="card-text">
-          <dt><%= "Director".pluralize(movie.directors.count) %></dt><dd><%= movie.directors.join ", " %></dd>
-          <dt>Actors</dt><dd><%= movie.actors.join ", " %></dd>
-          <dt>Plot</dt><dd class="text-justify"><small><%= truncate(movie.plot, length: 200) %></small></dd>
-        </dl>
-      </div>
-      <div class="card-footer">
-        <div class="text-center">
-          <%= link_to 'More', movie_path(movie), class: "btn btn-primary bt-small" %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Runtime</th>
+      <th>Genre</th>
+      <th>Plot</th>
+      <th>Language</th>
+      <th>Country</th>
+      <th>Awards</th>
+      <th>Poster url</th>
+      <th>Imdb</th>
+      <th>Imdb rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.year %></td>
+        <td><%= movie.runtime %></td>
+        <td><%= movie.genre %></td>
+        <td><%= movie.plot %></td>
+        <td><%= movie.language %></td>
+        <td><%= movie.country %></td>
+        <td><%= movie.awards %></td>
+        <td><%= movie.poster_url %></td>
+        <td><%= movie.imdb_id %></td>
+        <td><%= movie.imdb_rating %></td>
+        <td><%= link_to 'Show', movie %></td>
+        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <br>
 
