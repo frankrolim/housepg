@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MovieStore</title>
+    <title>Movie Store</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,45 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="collapse bg-inverse" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 py-4">
+            <h4 class="text-white">Sobre a Movie Store</h4>
+            <p class="text-muted">Nós insistimos em vender filmes.</p>
+          </div>
+          <div class="col-sm-4 py-4">
+            <h4 class="text-white">Opções</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Menu 1</a></li>
+              <li><a href="#" class="text-white">Menu 2</a></li>
+              <li><a href="#" class="text-white">Menu 3</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-inverse bg-inverse">
+      <div class="container d-flex justify-content-between">
+        <%= link_to "Movie Store", root_path, class: "navbar-brand" %>
+        <%= form_tag(search_movies_path, method: :get) do %>
+          <%= text_field_tag :query, params[:query], placeholder: "Busque por títulos", class: "form-control" %>
+        <% end %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+
+      <%= yield %>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Movie Store é uma aplicação exemplo utilizada durante o <a href="http://cursorails.kutzke.com.br">curso de Ruby on Rails</a></p>
+      </div>
+    </footer>
   </body>
 </html>

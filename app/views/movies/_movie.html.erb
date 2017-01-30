@@ -1,0 +1,19 @@
+<div class="card">
+  <img class="card-img-top" src="<%= movie.poster_url %>" width="100%" alt="<%= movie.title %>">
+  <div class="card-block">
+    <h4 class="card-title">
+      <%= movie.title %>
+    </h4>
+    <h6><small>IMDB Rating: <%= movie.imdb_rating %></small></h6>
+    <dl class="card-text">
+      <dt><%= "Director".pluralize(movie.directors.count) %></dt><dd><%= movie.directors.join ", " %></dd>
+      <dt>Actors</dt><dd><%= movie.actors.join ", " %></dd>
+      <dt>Plot</dt><dd class="text-justify"><small><%= truncate(movie.plot, length: 200) %></small></dd>
+    </dl>
+  </div>
+  <div class="card-footer">
+    <div class="text-center">
+      <%= link_to 'More', movie_path(movie), class: "btn btn-primary bt-small" %>
+    </div>
+  </div>
+</div>
