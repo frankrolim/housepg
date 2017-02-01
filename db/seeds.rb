@@ -18,6 +18,7 @@ require 'csv'
 
 Movie.delete_all
 Director.delete_all
+Actor.delete_all
 
 CSV.foreach(Rails.root.join("db/seeds_data/movies.csv"), headers: false) do |m|
   puts "#{m[0]}"
