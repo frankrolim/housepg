@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :directors
+  resources :actors
   resources :movies do
     collection do
       get 'search'

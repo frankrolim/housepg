@@ -1,18 +1,7 @@
-
-
 <%= simple_form_for(movie, html: { class: 'form-horizontal' }) do |f| %>
-  <% if movie.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+  <%= f.error_notification %>
 
-      <ul>
-      <% movie.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <div class="form-inputs">
     <%= f.input :title %>
 
     <%= f.input :year %>
@@ -38,6 +27,8 @@
     <%= f.association :directors, collection: Director.all, input_html: { multiple: "multiple", class: "multiselect"} %>
 
     <%= f.association :actors, collection: Actor.all, input_html: { multiple: "multiple", class: "multiselect"} %>
-
+  </div>
+  <div class="form-actions">
     <%= f.button :submit %>
+  </div>
 <% end %>

@@ -3,61 +3,68 @@
     <p id="notice"><%= notice %></p>
   <% end %>
 
-  <p>
-    <strong>Title:</strong>
-    <%= @movie.title %>
-  </p>
+  <div class="row">
+    <div class="col-md-3">
+      <figure class="figure">
+        <img src="<%= @movie.poster_url %>" class="figure-img img-fluid rounded" alt="<%= @movie.title  %>">
+      </figure>
+    </div>
+    <div class="col-md-9">
 
-  <p>
-    <strong>Year:</strong>
-    <%= @movie.year %>
-  </p>
+      <dl>
+        <dt>Title</dt>
+        <dd><%= @movie.title %></dd>
 
-  <p>
-    <strong>Runtime:</strong>
-    <%= @movie.runtime %>
-  </p>
+        <dt>Year</dt>
+        <dd><%= @movie.year %></dd>
 
-  <p>
-    <strong>Genre:</strong>
-    <%= @movie.genre %>
-  </p>
+        <dt>Runtime</dt>
+        <dd><%= @movie.runtime %></dd>
 
-  <p>
-    <strong>Plot:</strong>
-    <%= @movie.plot %>
-  </p>
+        <dt>Genre</dt>
+        <dd><%= @movie.genre %></dd>
 
-  <p>
-    <strong>Language:</strong>
-    <%= @movie.language %>
-  </p>
+        <dt><%= "Director".pluralize(@movie.directors.count)%></dt>
+        <dd>
+          <% @movie.directors.each do |director| %>
+            <%= link_to director, director %>
+            <%= ", ".html_safe unless director == @movie.directors.last %>
+          <% end %>
+        </dd>
 
-  <p>
-    <strong>Country:</strong>
-    <%= @movie.country %>
-  </p>
+        <dt><%= "Actor".pluralize(@movie.actors.count)%></dt>
+        <dd>
+          <% @movie.actors.each do |actor| %>
+            <%= link_to actor, actor %>
+            <%= ", ".html_safe unless actor == @movie.actors.last %>
+          <% end %>
+        </dd>
 
-  <p>
-    <strong>Awards:</strong>
-    <%= @movie.awards %>
-  </p>
+        <dt>Plot</dt>
+        <dd><%= @movie.plot %></dd>
 
-  <p>
-    <strong>Poster url:</strong>
-    <%= @movie.poster_url %>
-  </p>
+        <dt>Language</dt>
+        <dd><%= @movie.language %></dd>
 
-  <p>
-    <strong>Imdb:</strong>
-    <%= @movie.imdb_id %>
-  </p>
+        <dt>Country</dt>
+        <dd><%= @movie.country %></dd>
 
-  <p>
-    <strong>Imdb rating:</strong>
-    <%= @movie.imdb_rating %>
-  </p>
+        <dt>Awards</dt>
+        <dd><%= @movie.awards %></dd>
 
-  <%= link_to 'Edit', edit_movie_path(@movie) %> |
-  <%= link_to 'Back', movies_path %>
+        <dt>Imdb</dt>
+        <dd><%= @movie.imdb_id %></dd>
+
+        <dt>Imdb rating</dt>
+        <dd>
+          <%= render_imdb_rating @movie.imdb_rating %>
+        </dd>
+      </dl>
+
+        <%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-primary" %>
+        <%= link_to 'Back', movies_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+
+
 </div>

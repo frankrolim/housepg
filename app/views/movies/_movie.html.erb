@@ -4,10 +4,22 @@
     <h4 class="card-title">
       <%= movie.title %>
     </h4>
-    <h6><small>IMDB Rating: <%= movie.imdb_rating %></small></h6>
+    <h6><small>IMDB Rating: <%= render_imdb_rating movie.imdb_rating %></small></h6>
     <dl class="card-text">
-      <dt><%= "Director".pluralize(movie.directors.count) %></dt><dd><%= movie.directors.join ", " %></dd>
-      <dt>Actors</dt><dd><%= movie.actors.join ", " %></dd>
+      <dt><%= "Director".pluralize(movie.directors.count) %></dt>
+      <dd>
+        <% movie.directors.each do |director| %>
+          <%= link_to director, director %>
+          <%= ", ".html_safe unless director == movie.directors.last %>
+        <% end %>
+      </dd>
+      <dt>Actors</dt>
+      <dd>
+        <% movie.actors.each do |actor| %>
+          <%= link_to actor, actor %>
+          <%= ", ".html_safe unless actor == movie.actors.last %>
+        <% end %>
+      </dd>
       <dt>Plot</dt><dd class="text-justify"><small><%= truncate(movie.plot, length: 200) %></small></dd>
     </dl>
   </div>

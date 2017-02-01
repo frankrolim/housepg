@@ -18,5 +18,5 @@
 <div class="container">
   <h2>Alguns dos nossos melhores filmes ...</h2>
 
-  <%= render "movies/movies" %>
+  <%= render partial: "movies/movies", locals: {movies: @movies} %>
 </div>

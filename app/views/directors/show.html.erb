@@ -1,0 +1,10 @@
+
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h2><%= @director %>'s movies</h2>
+
+  <%= render partial: "movies/movies", locals: {movies: @director.movies} %>
+
+  <%= link_to 'Edit', edit_director_path(@director), class: "btn btn-primary" %>
+  <%= link_to 'Back', directors_path, class: "btn btn-secondary" %>
+</div>

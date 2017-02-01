@@ -5,4 +5,8 @@ class Movie < ApplicationRecord
   def self.search(query)
     self.where('title LIKE ?', "%#{query}%").order('id DESC')
   end
+
+  def to_s
+    self.title
+  end
 end
