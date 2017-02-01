@@ -1,6 +1,6 @@
 
 
-<%= form_for(movie) do |f| %>
+<%= simple_form_for(movie, html: { class: 'form-horizontal' }) do |f| %>
   <% if movie.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
@@ -13,74 +13,31 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control" %>
-  </div>
+    <%= f.input :title %>
 
-  <div class="field form-group">
-    <%= f.label :year %>
-    <%= f.number_field :year, class: "form-control" %>
-  </div>
+    <%= f.input :year %>
 
-  <div class="field form-group">
-    <%= f.label :runtime %>
-    <%= f.text_field :runtime, class: "form-control" %>
-  </div>
+    <%= f.input :runtime %>
 
-  <div class="field form-group">
-    <%= f.label :genre %>
-    <%= f.text_field :genre, class: "form-control" %>
-  </div>
+    <%= f.input :genre %>
 
-  <div class="field form-group">
-    <%= f.label :plot %>
-    <%= f.text_area :plot, class: "form-control" %>
-  </div>
+    <%= f.input :plot %>
 
-  <div class="field form-group">
-    <%= f.label :language %>
-    <%= f.text_field :language, class: "form-control" %>
-  </div>
+    <%= f.input :language %>
 
-  <div class="field form-group">
-    <%= f.label :country %>
-    <%= f.text_field :country, class: "form-control" %>
-  </div>
+    <%= f.input :country %>
 
-  <div class="field form-group">
-    <%= f.label :awards %>
-    <%= f.text_field :awards, class: "form-control" %>
-  </div>
+    <%= f.input :awards %>
 
-  <div class="field form-group">
-    <%= f.label :poster_url %>
-    <%= f.text_field :poster_url, class: "form-control" %>
-  </div>
+    <%= f.input :poster_url %>
 
-  <div class="field form-group">
-    <%= f.label :imdb_id %>
-    <%= f.text_field :imdb_id, class: "form-control" %>
-  </div>
+    <%= f.input :imdb_id %>
 
-  <div class="field form-group">
-    <%= f.label :imdb_rating %>
-    <%= f.text_field :imdb_rating, class: "form-control" %>
-  </div>
+    <%= f.input :imdb_rating %>
 
-  <div class="field form-group">
-    <%= f.label :directors %>
-    <%= f.collection_select :director_ids, Director.all, :id, :name, {},
-    {multiple: true, class: "form-control"} %>
-  </div>
+    <%= f.association :directors, collection: Director.all, input_html: { multiple: "multiple", class: "multiselect"} %>
 
-  <div class="field form-group">
-    <%= f.label :actors %>
-    <%= f.collection_select :actor_ids, Actor.all, :id, :name, {},
-    {multiple: true, class: "form-control"} %>
-  </div>
+    <%= f.association :actors, collection: Actor.all, input_html: { multiple: "multiple", class: "multiselect"} %>
 
-  <div class="actions">
-    <%= f.submit "Enviar", class: "btn" %>
-  </div>
+    <%= f.button :submit %>
 <% end %>
