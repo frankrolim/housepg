@@ -6,19 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'csv'
 
 Movie.delete_all
 Director.delete_all
 Actor.delete_all
+User.delete_all
 
 CSV.foreach(Rails.root.join("db/seeds_data/movies.csv"), headers: false) do |m|
   puts "#{m[0]}"
@@ -47,3 +40,6 @@ CSV.foreach(Rails.root.join("db/seeds_data/movies.csv"), headers: false) do |m|
     movie.save!
   end
 end
+
+User.create({name: "Alex Kutzke", email: "alexkutzke@gmail.com", password: "123123", admin: true})
+User.create({name: "Zé Lelé", email: "a@a.com", password: "123123", admin: false})
