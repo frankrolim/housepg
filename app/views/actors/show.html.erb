@@ -1,5 +1,4 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
   <h2><%= @actor %>'s movies</h2>
 
   <%= render partial: "movies/movies", locals: {movies: @actor.movies} %>
