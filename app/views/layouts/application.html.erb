@@ -24,6 +24,8 @@
               <li><%= link_to "Movies", movies_path %></li>
               <li><%= link_to "Actors", actors_path %></li>
               <li><%= link_to "Directors", directors_path %></li>
+              <li><%= link_to "Editar perfil", edit_user_registration_path %></li>
+              <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
             </ul>
           </div>
         </div>
@@ -40,6 +42,9 @@
         </button>
       </div>
     </div>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
       <%= yield %>
 
