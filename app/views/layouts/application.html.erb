@@ -21,9 +21,18 @@
           <div class="col-sm-4 py-4">
             <h4 class="text-white">Opções</h4>
             <ul class="list-unstyled">
-              <li><%= link_to "Movies", movies_path %></li>
-              <li><%= link_to "Actors", actors_path %></li>
-              <li><%= link_to "Directors", directors_path %></li>
+              <% if can? :manage, Movie %>
+                <li><%= link_to "Movies", movies_path %></li>
+              <% end %>
+              <% if can? :manage, Actor %>
+                <li><%= link_to "Actors", actors_path %></li>
+              <% end %>
+              <% if can? :manage, Director %>
+                <li><%= link_to "Directors", directors_path %></li>
+              <% end %>
+              <% if can? :manage, User %>
+                <li><%= link_to "Users", users_path %></li>
+              <% end %>
               <li><%= link_to "Editar perfil", edit_user_registration_path %></li>
               <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
             </ul>
@@ -38,12 +47,13 @@
           <%= text_field_tag :query, params[:query], placeholder: "Busque por títulos", class: "form-control" %>
         <% end %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <%= "#{current_user.name} (#{current_user.email})" if user_signed_in? %>
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
     </div>
 
-    <div class="container">  
+    <div class="container">
       <% unless notice.nil? %>
         <div class="alert alert-info"><%= notice %></div>
       <% end %>

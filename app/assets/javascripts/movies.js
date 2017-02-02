@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $('.multiselect').multiselect({
     enableFiltering: true,
     includeSelectAllOption: false,
