@@ -58,8 +58,10 @@
         </dd>
       </dl>
 
+      <% if can? :manage, Movie %>
         <%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-primary" %>
-        <%= link_to 'Back', movies_path, class: "btn btn-secondary" %>
+        <%= link_to 'List of Movies', movies_path, class: "btn btn-secondary" %>
+      <% end %>
     </div>
   </div>
 

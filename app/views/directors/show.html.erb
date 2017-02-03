@@ -5,6 +5,8 @@
 
   <%= render partial: "movies/movies", locals: {movies: @director.movies} %>
 
-  <%= link_to 'Edit', edit_director_path(@director), class: "btn btn-primary" %>
-  <%= link_to 'Back', directors_path, class: "btn btn-secondary" %>
+  <% if can? :manage, Director %>
+    <%= link_to 'Edit', edit_director_path(@director), class: "btn btn-primary" %>
+    <%= link_to 'List of Directors', directors_path, class: "btn btn-secondary" %>
+  <% end %>
 </div>

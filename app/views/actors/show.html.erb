@@ -3,6 +3,8 @@
 
   <%= render partial: "movies/movies", locals: {movies: @actor.movies} %>
 
-  <%= link_to 'Edit', edit_actor_path(@actor), class: "btn btn-primary" %>
-  <%= link_to 'Back', actors_path, class: "btn btn-secondary" %>
+  <% if can? :manage, Actor %>
+    <%= link_to 'Edit', edit_actor_path(@actor), class: "btn btn-primary" %>
+    <%= link_to 'List of Actors', actors_path, class: "btn btn-secondary" %>
+  <% end %>
 </div>
