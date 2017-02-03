@@ -28,7 +28,7 @@ class CartController < ApplicationController
     cart.order_items = []
     cart.save!
 
-    redirect_to root_url, notice: "Your order was sent!"
+    redirect_to orders_url, notice: "Your order was sent!"
   end
 
   protected
