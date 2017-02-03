@@ -24,6 +24,8 @@
 
     <%= f.input :imdb_rating %>
 
+    <%= f.input :price %>
+
     <%= f.association :directors, collection: Director.all, input_html: { multiple: "multiple", class: "multiselect"} %>
 
     <%= f.association :actors, collection: Actor.all, input_html: { multiple: "multiple", class: "multiselect"} %>

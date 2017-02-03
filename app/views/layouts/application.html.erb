@@ -33,6 +33,9 @@
               <% if can? :manage, User %>
                 <li><%= link_to "Users", users_path %></li>
               <% end %>
+              <% if can? :read, Order %>
+                <li><%= link_to "My orders", orders_path  %></li>
+              <% end %>
               <% if user_signed_in? %>
                 <li><%= link_to "Editar perfil", edit_user_registration_path %></li>
                 <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
@@ -48,10 +51,18 @@
         <%= form_tag(search_movies_path, method: :get) do %>
           <%= text_field_tag :query, params[:query], placeholder: "Busque por títulos", class: "form-control" %>
         <% end %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-          <%= "#{current_user.name} (#{current_user.email})" if user_signed_in? %>
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div>
+          <% if user_signed_in? %>
+            <%= link_to cart_index_path, class: "navbar-toggler" do %>
+              <i class="fa fa-shopping-cart"></i>
+              <span id="cart-count">(<%= current_user.cart.order_items.count %> <%= "item".pluralize(current_user.cart.order_items.count) %>)</span>
+            <% end %>
+          <% end %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <%= "#{current_user.name} (#{current_user.email})" if user_signed_in? %>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
       </div>
     </div>
 

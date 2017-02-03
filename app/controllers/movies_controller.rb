@@ -68,6 +68,16 @@ class MoviesController < ApplicationController
     @movies = Movie.search(params[:query])
   end
 
+  def add_to_cart
+    cart = current_user.cart
+    order_item = cart.order_items.find_or_create_by({movie: @movie})
+    order_item.increment!(:quantity)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_movie

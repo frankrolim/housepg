@@ -2,7 +2,7 @@
   <img class="card-img-top" src="<%= movie.poster_url %>" width="100%" alt="<%= movie.title %>">
   <div class="card-block">
     <h4 class="card-title">
-      <%= movie.title %>
+      <%= movie.title %> <span class="badge badge-default"><%= number_to_currency(movie.price) %></span>
     </h4>
     <h6><small>IMDB Rating: <%= render_imdb_rating movie.imdb_rating %></small></h6>
     <dl class="card-text">
@@ -26,6 +26,7 @@
   <div class="card-footer">
     <div class="text-center">
       <%= link_to 'More', movie_path(movie), class: "btn btn-primary bt-small" %>
+      <%= link_to '<i class="fa fa-cart-plus"></i> Add to Cart'.html_safe, add_to_cart_movie_path(movie.id), class: "btn btn-success bt-small", remote: true %>
     </div>
   </div>
 </div>

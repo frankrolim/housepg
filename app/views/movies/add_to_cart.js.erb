@@ -1,0 +1,2 @@
+$("#cart-count").html("(<%= escape_javascript("#{current_user.cart.order_items.count}  #{'item'.pluralize(current_user.cart.order_items.count)}") %>)");
+alert("Movie added to your cart.");

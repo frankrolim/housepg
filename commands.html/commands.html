@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Passo a passo</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/pilcrow.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/hljs-github.min.css"/>
+  </head>
+  <body>
+    <article class="markdown-body"><h1 id="passo-a-passo"><a class="header-link" href="#passo-a-passo"></a>Passo a passo</h1>
+<h2 id="modelos"><a class="header-link" href="#modelos"></a>Modelos</h2>
+<pre class="hljs"><code>$ rails g model order_item movie:references quantity:<span class="hljs-built_in">integer</span> cart:references order:references
+$ rails g model order user:references
+$ rails g model cart user:references</code></pre><pre class="hljs"><code><span class="hljs-comment"># order_item.rb</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderItem</span> &lt; ApplicationRecord</span>
+  belongs_to <span class="hljs-symbol">:movie</span>
+  belongs_to <span class="hljs-symbol">:cart</span>
+  belongs_to <span class="hljs-symbol">:order</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment"># cart.rb</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Cart</span> &lt; ApplicationRecord</span>
+  belongs_to <span class="hljs-symbol">:user</span>
+  has_many <span class="hljs-symbol">:order_itens</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment"># order.rb</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span> &lt; ApplicationRecord</span>
+  belongs_to <span class="hljs-symbol">:user</span>
+  has_many <span class="hljs-symbol">:order_items</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment"># movie.rb</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Movie</span> &lt; ApplicationRecord</span>
+  has_and_belongs_to_many <span class="hljs-symbol">:actors</span>
+  has_and_belongs_to_many <span class="hljs-symbol">:directors</span>
+  has_many <span class="hljs-symbol">:order_itens</span>
+
+  <span class="hljs-comment"># ...</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment"># user.rb</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> &lt; ApplicationRecord</span>
+  <span class="hljs-keyword">require</span> <span class="hljs-string">'digest/md5'</span>
+  has_one <span class="hljs-symbol">:cart</span>
+  has_many <span class="hljs-symbol">:orders</span>
+<span class="hljs-keyword">end</span></code></pre>    </article>
+  </body>
+</html>

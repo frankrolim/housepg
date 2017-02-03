@@ -36,6 +36,9 @@ class Ability
       cannot :manage, :all
       can :show, :all
       can :search, Movie
+      can :read, Order, user_id: user.id
+      can :manage, Cart, user_id: user.id
+      can :add_to_cart, Movie
     end
   end
 end

@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Order #<%= @order.id %> - <%= current_user.name %></h1>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <th></th>
+      <th>Movie</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </thead>
+    <tbody>
+      <% @order.order_items.each do |order_item| %>
+        <tr>
+          <td width="100px"><%= image_tag order_item.movie.poster_url, height: "100px" %></td>
+          <td width="100%"><%= order_item.movie.title %></td>
+          <td>
+            <%= order_item.quantity %>
+          </td>
+          <td><%= number_to_currency order_item.total %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td class="text-right"><strong>Total</strong></td>
+        <td><strong><%= number_to_currency @order.total %></strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
