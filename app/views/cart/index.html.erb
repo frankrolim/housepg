@@ -40,7 +40,7 @@
     </table>
 
     <p class="text-right">
-      <%= link_to '<i class="fa fa-credit-card"></i> Proceed to checkout'.html_safe, checkout_cart_index_path, class: "btn btn-success" %>
+      <%= link_to '<i class="fa fa-credit-card"></i> Proceed to checkout'.html_safe, checkout_cart_index_path, class: "btn btn-success", data: { confirm: 'Are you sure?' } %>
     </p>
   <% end %>
 </div>

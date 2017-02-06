@@ -74,6 +74,7 @@ class MoviesController < ApplicationController
     order_item.increment!(:quantity)
 
     respond_to do |format|
+      format.html {redirect_to cart_index_url}
       format.js
     end
   end
