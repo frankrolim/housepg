@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'orders/index'
-
   resources :orders, only: [:index, :show]
 
   resources :cart, only: [:index] do

@@ -15,6 +15,8 @@ class CartController < ApplicationController
 
   def minus
     unless @order_item.nil?
+      # @order_item.decrement!(:quantity) was not triggering the after:commmit
+      # callback. See models/order_item.rb for more
       @order_item.quantity -= 1
       @order_item.save!
     end
