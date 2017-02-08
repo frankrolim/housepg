@@ -26,7 +26,7 @@
   <div class="card-footer">
     <div class="text-center">
       <%= link_to 'More', movie_path(movie), class: "btn btn-primary bt-small" %>
-      <%= link_to '<i class="fa fa-cart-plus"></i> Add to Cart'.html_safe, add_to_cart_movie_path(movie.id), class: "btn btn-success bt-small", remote: user_signed_in? %>
+      <%= link_to '<i class="fa fa-cart-plus"></i> Add to Cart'.html_safe, add_to_cart_movie_path(movie.id), class: "btn btn-success bt-small add_to_cart", remote: user_signed_in? %>
     </div>
   </div>
 </div>
