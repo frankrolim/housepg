@@ -62,3 +62,8 @@ gem 'country_select'
 
 gem 'devise'
 gem 'cancancan'
+
+group :production do
+  gem 'mysql2'
+end
+
