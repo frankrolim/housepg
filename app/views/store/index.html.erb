@@ -1,8 +1,8 @@
 
 <section class="jumbotron text-center">
   <div class="container">
-    <h1 class="jumbotron-heading">Compre os melhores filmes!</h1>
-    <p class="lead text-muted">Porque sua internet será limitada um dia!</p>
+    <h1 class="jumbotron-heading">A melhor balada da região!</h1>
+    <p class="lead text-muted">Compre seu ingresso para o House Cafe Club.</p>
     <p>
       <% if user_signed_in? %>
         Olá <strong><%= current_user.email %></strong>!
@@ -16,7 +16,7 @@
 
 
 <div class="container">
-  <h2>Alguns dos nossos melhores filmes ...</h2>
+  <h2>Eventos disponíveis:</h2>
 
   <%= render partial: "movies/movies", locals: {movies: @movies} %>
 </div>

@@ -9,30 +9,35 @@
     <div class="col-md-9">
 
       <dl>
-        <dt>Title</dt>
+        <dt>Evento</dt>
         <dd><%= @movie.title %></dd>
 
-        <dt>Year</dt>
-        <dd><%= @movie.year %></dd>
+        <dt>Data</dt>
+        <dd>
+          <% @movie.actors.each do |actor| %>
+            <%= actor %>
+            <%= ", ".html_safe unless actor == @movie.actors.last %>
+          <% end %>
+        </dd>
 
-        <dt>Runtime</dt>
+        <dt>Local</dt>
         <dd><%= @movie.runtime %></dd>
 
-        <dt>Genre</dt>
+        <dt>Atrações</dt>
         <dd><%= @movie.genre %></dd>
 
-        <dt><%= "Director".pluralize(@movie.directors.count)%></dt>
+        <dt><%= "Cidade" %></dt>
         <dd>
           <% @movie.directors.each do |director| %>
-            <%= link_to director, director %>
+            <%= director %>
             <%= ", ".html_safe unless director == @movie.directors.last %>
           <% end %>
         </dd>
 
-        <dt><%= "Actor".pluralize(@movie.actors.count)%></dt>
+        <!--<dt><%= "Actor".pluralize(@movie.actors.count)%></dt>
         <dd>
           <% @movie.actors.each do |actor| %>
-            <%= link_to actor, actor %>
+            <%= actor %>
             <%= ", ".html_safe unless actor == @movie.actors.last %>
           <% end %>
         </dd>
@@ -47,19 +52,21 @@
         <dd><%= @movie.country %></dd>
 
         <dt>Awards</dt>
-        <dd><%= @movie.awards %></dd>
+        <dd><%= @movie.awards %></dd>-->
 
-        <dt>Imdb</dt>
-        <dd><%= @movie.imdb_id %></dd>
+        <dt>Lote</dt>
+        <dd><%= @movie.imdb_id %><%="° lote"%></dd>
 
-        <dt>Imdb rating</dt>
+        <dt>Valor</dt>
         <dd>
-          <%= render_imdb_rating @movie.imdb_rating %>
+          <h4 class="card-title"> 
+          <span class="badge badge-default"><%= number_to_currency(@movie.imdb_rating) %></span>
+          </h4>
         </dd>
 
       </dl>
 
-        <%= link_to '<i class="fa fa-cart-plus"></i> Add to Cart'.html_safe, add_to_cart_movie_path(@movie.id), class: "btn btn-success bt-small", remote: user_signed_in? %>
+        <%= link_to '<i class="fa fa-cart-plus"></i> Comprar'.html_safe, add_to_cart_movie_path(@movie.id), class: "btn btn-success bt-small", remote: user_signed_in? %>
 
         <% if can? :manage, Movie %>
           <%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-primary" %>

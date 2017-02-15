@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Movie Store</title>
+    <title>House Cafe eTickets</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -23,8 +23,8 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-8 py-4">
-            <h4 class="text-white">Sobre a Movie Store</h4>
-            <p class="text-muted">Nós insistimos em vender filmes.</p>
+            <h4 class="text-white">As melhores baladas da região!</h4>
+            <p class="text-muted">Compre seu ingresso para o House Cafe Club.</p>
           </div>
           <div class="col-sm-4 py-4">
             <h4 class="text-white">Opções</h4>
@@ -42,7 +42,7 @@
                 <li><%= link_to "Users", users_path %></li>
               <% end %>
               <% if can? :read, Order %>
-                <li><%= link_to "My orders", orders_path  %></li>
+                <li><%= link_to "Meus ingressos", orders_path  %></li>
               <% end %>
               <% if user_signed_in? %>
                 <li><%= link_to "Editar perfil", edit_user_registration_path %></li>
@@ -55,10 +55,9 @@
     </div>
     <div class="navbar navbar-inverse bg-inverse">
       <div class="container d-flex justify-content-between">
-        <%= link_to "Movie Store", root_path, class: "navbar-brand" %>
-        <%= form_tag(search_movies_path, method: :get) do %>
-          <%= text_field_tag :query, params[:query], placeholder: "Busque por títulos", class: "form-control" %>
-        <% end %>
+        <!--<p><font face="Bell MT" color=white size=5>HOUSE CAFE e-Tickets&nbsp;&nbsp;</p></font>-->
+        <%= link_to "HOUSE CAFE e-Tickets", root_path, class: "navbar-brand" %>
+        
         <div>
           <% if user_signed_in? %>
             <%= link_to cart_index_path, class: "navbar-toggler" do %>
@@ -89,9 +88,9 @@
     <footer class="text-muted">
       <div class="container">
         <p class="float-right">
-          <a href="#">Back to top</a>
+          <a href="#">Voltar ao topo.</a>
         </p>
-        <p>Movie Store é uma aplicação exemplo utilizada durante o <a href="http://cursorails.kutzke.com.br">curso de Ruby on Rails</a></p>
+        
       </div>
     </footer>
   </body>

@@ -1,13 +1,13 @@
 <div class="container">
-  <h1><%= current_user.name %>'s orders</h1>
+  <h1>Ingressos de <%= current_user.name %></h1>
 
   <% if @orders.empty? %>
-    <p class="text-center"><strong>You do not have any orders!</strong></p>
+    <p class="text-center"><strong>Você não tem nenhum pedido!</strong></p>
   <% else %>
     <table class="table table-striped table-hover">
       <thead>
         <th>#</th>
-        <th>Movies</th>
+        <th>Eventos</th>
         <th>Total</th>
         <th></th>
       </thead>
