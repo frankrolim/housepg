@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
+
   <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>House Cafe eTickets</title>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,6 +14,9 @@
   </head>
 
   <body>
+  
+
+
     <div id="loadingModal" class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-sm">
         <div class="alert alert-info" role="alert">
@@ -23,6 +29,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-8 py-4">
+            <p class="text-white">Bem-vindo, <%= "#{current_user.name} " if user_signed_in? %></p>
             <h4 class="text-white">As melhores baladas da região!</h4>
             <p class="text-muted">Compre seu ingresso para o House Cafe Club.</p>
           </div>
@@ -66,7 +73,7 @@
             <% end %>
           <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <%= "#{current_user.name} (#{current_user.email})" if user_signed_in? %>
+            
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
