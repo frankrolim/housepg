@@ -1,14 +1,14 @@
 
 <section class="jumbotron text-center">
   <div class="container">
-    <h1 class="jumbotron-heading">A melhor balada da região!</h1>
-    <p class="lead text-muted">Compre seu ingresso para o House Cafe Club.</p>
+    <h1 class="jumbotron-heading"> <%= t('head1')%></h1>
+    <p class="lead text-muted"> <%= t('head2')%> </p>
     <p>
       <% if user_signed_in? %>
         Olá <strong><%= current_user.email %></strong>!
       <% else %>
-        <%= link_to "Faça seu cadastro", new_user_registration_path, class: "btn btn-primary" %>
-        <%= link_to "Já sou usuário", new_user_session_path, class: "btn btn-secondary" %>
+        <%= link_to (t ('signup')), new_user_registration_path, class: "btn btn-primary" %>
+        <%= link_to (t ('signin')), new_user_session_path, class: "btn btn-secondary" %>
       <% end %>
     </p>
   </div>
@@ -16,7 +16,7 @@
 
 
 <div class="container">
-  <h2>Eventos disponíveis:</h2>
+  <h2><%= t ('events')%></h2>
 
   <%= render partial: "movies/movies", locals: {movies: @movies} %>
 </div>

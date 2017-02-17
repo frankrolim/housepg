@@ -6,44 +6,44 @@
     </h4>
     <!--<h6><small>IMDB Rating: <%= render_imdb_rating movie.imdb_rating %></small></h6>-->
     <dl class="card-text">
-    <dt><%= "Local" %></dt>
+    <dt><%= t('location') %></dt>
     <dd>
         <%= (movie.runtime) %>
     </dd>
 
-      <dt><%= "Cidade" %></dt>
+      <dt><%= t('city')  %></dt>
       <dd>
         <% movie.directors.each do |director| %>
           <%= director %>
           <%= ", ".html_safe unless director == movie.directors.last %>
         <% end %>
       </dd>
-      <dt>Data</dt>
+      <dt><%= t('date') %></dt>
       <dd>
         <% movie.actors.each do |actor| %>
           <%= actor %>
           <%= ", ".html_safe unless actor == movie.actors.last %>
         <% end %>
       </dd>
-      <dt>Atrações</dt><dd class="text-justify"><small><%= truncate(movie.genre, length: 200) %></small></dd>
+      <dt><%= t('artists') %></dt> <dd class="text-justify"><small><%= truncate(movie.genre, length: 200) %></small></dd>
 
           <!--<dt><%= "Lote" %></dt>
     <dd>
         <%= (movie.imdb_id)%><%="° lote"%>
     </dd>-->
-    <dt>Entrada: </dt>
+    <dt><%= t('entrance') %></dt>
       <dd>
       <%= radio_button_tag(:genero, "child") %>
-      <%= label_tag(:genero_masculino, "Masculino") %>
+      <%= label_tag(:genero_masculino, t('male')) %>
       <%= radio_button_tag(:genero, "adult") %>
-      <%= label_tag(:genero_feminino, "Feminino") %>
+      <%= label_tag(:genero_feminino, t('female')) %>
       </dd>
     </dl>
   </div>
   <div class="card-footer">
     <div class="text-center">
-      <%= link_to 'Mais informações', movie_path(movie), class: "btn btn-primary bt-small" %>
-      <%= link_to '<i class="fa fa-cart-plus"></i> Comprar'.html_safe, add_to_cart_movie_path(movie.id), class: "btn btn-success bt-small add_to_cart", remote: user_signed_in? %>
+      <%= link_to t('more_info'), movie_path(movie), class: "btn btn-primary bt-small" %>
+      <%= link_to t('buy') .html_safe, add_to_cart_movie_path(movie.id), class: "btn btn-success bt-small add_to_cart", remote: user_signed_in? %>
     </div>
   </div>
 </div>

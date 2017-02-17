@@ -20,7 +20,7 @@
     <div id="loadingModal" class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-sm">
         <div class="alert alert-info" role="alert">
-          Please wait...
+          Um momento por favor...
         </div>
       </div>
     </div>
@@ -29,12 +29,12 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-8 py-4">
-            <p class="text-white">Bem-vindo, <%= "#{current_user.name} " if user_signed_in? %></p>
-            <h4 class="text-white">As melhores baladas da região!</h4>
-            <p class="text-muted">Compre seu ingresso para o House Cafe Club.</p>
+            <p class="text-white"><%= t('hello') if user_signed_in? %></p>
+            <h4 class="text-white"><%= t('head1') %></h4>
+            <p class="text-muted"><%= t('head2') %></p>
           </div>
           <div class="col-sm-4 py-4">
-            <h4 class="text-white">Opções</h4>
+            <h4 class="text-white"><%= t('options') %></h4>
             <ul class="list-unstyled">
               <% if can? :manage, Movie %>
                 <li><%= link_to "Movies", movies_path %></li>
@@ -49,11 +49,11 @@
                 <li><%= link_to "Users", users_path %></li>
               <% end %>
               <% if can? :read, Order %>
-                <li><%= link_to "Meus ingressos", orders_path  %></li>
+                <li><%= link_to t('tickets'), orders_path  %></li>
               <% end %>
               <% if user_signed_in? %>
-                <li><%= link_to "Editar perfil", edit_user_registration_path %></li>
-                <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to t('edit'), edit_user_registration_path %></li>
+                <li><%= link_to t('leave'), destroy_user_session_path, method: :delete %></li>
               <% end %>
             </ul>
           </div>
