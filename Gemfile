@@ -68,3 +68,7 @@ gem 'cancancan'
 #  gem 'mysql2'
 #end
 
+group :production, :staging do
+  gem "pg"
+end
+
