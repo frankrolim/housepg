@@ -5,7 +5,7 @@
     <p class="lead text-muted"> <%= t('head2')%> </p>
     <p>
       <% if user_signed_in? %>
-        Olá <strong><%= current_user.email %></strong>!
+        Olá <strong><%= current_user.name %></strong>!
       <% else %>
         <%= link_to (t ('signup')), new_user_registration_path, class: "btn btn-primary" %>
         <%= link_to (t ('signin')), new_user_session_path, class: "btn btn-secondary" %>
