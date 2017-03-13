@@ -1,5 +1,5 @@
 pt-BR:
-  hello: "Bem-vindo, %{username}"
+  hello: "Bem-vindo, "
   title: "Melior balada"
   signup: "Faça seu cadastro"
   signin: "Já sou usuário"

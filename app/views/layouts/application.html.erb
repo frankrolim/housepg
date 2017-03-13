@@ -29,7 +29,10 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-8 py-4">
-            <p class="text-white"><%= t('hello') if user_signed_in? %></p>
+            <p class="text-white"><%= t('hello') if user_signed_in? %><%= current_user.name if user_signed_in? %>
+              
+
+            </p>
             <h4 class="text-white"><%= t('head1') %></h4>
             <p class="text-muted"><%= t('head2') %></p>
           </div>

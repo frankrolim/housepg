@@ -66,12 +66,13 @@
 
       </dl>
 
-        <%= link_to '<i class="fa fa-cart-plus"></i> Comprar'.html_safe, add_to_cart_movie_path(@movie.id), class: "btn btn-success bt-small", remote: user_signed_in? %>
+        <!--<%= link_to '<i class="fa fa-cart-plus"></i> Comprar'.html_safe, add_to_cart_movie_path(@movie.id), class: "btn btn-success bt-small", remote: user_signed_in? %>-->
 
         <% if can? :manage, Movie %>
-          <%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-primary" %>
-          <%= link_to 'List of Movies', movies_path, class: "btn btn-secondary" %>
-        <% end %>
+          <%= link_to 'Editar', edit_movie_path(@movie), class: "btn btn-primary" %>
+          
+          <!--<%= link_to 'List of Movies', movies_path, class: "btn btn-secondary" %>
+        <% end %>-->
     </div>
   </div>
 
