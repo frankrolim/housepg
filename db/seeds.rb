@@ -44,7 +44,7 @@ CSV.foreach(Rails.root.join("db/seeds_data/movies.csv"), headers: false) do |m|
   movie.save!
 end
 
-User.create({name: "Alex Kutzke", email: "alexkutzke@gmail.com", password: "123123", admin: true})
+User.create({name: "Frank Rolim", email: "frankmendes@live.com", password: "123123", admin: true})
 User.create({name: "Zé Lelé", email: "a@a.com", password: "123123", admin: false})
 
 #Cart.create([{user: User.first},{user: User.last}])
