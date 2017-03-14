@@ -2,35 +2,36 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
+    <%= f.input :title, :label => "Nome" %>
 
-    <%= f.input :year %>
+<%= f.input :actors, :label => "Data" %>
+    <!--<%= f.input :year %>-->
 
-    <%= f.input :runtime %>
+    <%= f.input :runtime, :label => "Local" %>
 
-    <%= f.input :genre %>
+    <%= f.input :genre, :label => "Atrações" %>
 
-    <%= f.input :plot %>
+    <!--<%= f.input :plot %>-->
 
-    <%= f.input :language %>
+    <!--<%= f.input :language %>-->
 
-    <%= f.input :country %>
+    <!--<%= f.input :country %>-->
 
-    <%= f.input :awards %>
+    <!--<%= f.input :awards %>-->
 
-    <%= f.input :poster_url %>
+    <%= f.input :poster_url, :label => "Link da Imagem" %>
 
-    <%= f.input :imdb_id %>
+    <%= f.input :imdb_id, :label => "Lote" %>
 
-    <%= f.input :imdb_rating %>
+    <%= f.input :imdb_rating, :label => "Valor" %>
 
-    <%= f.input :price %>
+    <!--<%= f.input :price %>-->
 
-    <%= f.association :directors, collection: Director.all, input_html: { multiple: "multiple", class: "multiselect"} %>
+    <%= f.input :directors, :label => "Cidade" %>
 
-    <%= f.association :actors, collection: Actor.all, input_html: { multiple: "multiple", class: "multiselect"} %>
+    
   </div>
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :label => "Criar Evento" %>
   </div>
 <% end %>

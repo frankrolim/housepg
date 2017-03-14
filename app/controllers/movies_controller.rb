@@ -31,7 +31,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
+        format.html { redirect_to @movie, notice: 'Evento criado com sucesso.' }
         format.json { render :show, status: :created, location: @movie }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class MoviesController < ApplicationController
   def update
     respond_to do |format|
       if @movie.update(movie_params)
-        format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
+        format.html { redirect_to @movie, notice: 'Evento atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @movie }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class MoviesController < ApplicationController
   def destroy
     @movie.destroy
     respond_to do |format|
-      format.html { redirect_to movies_url, notice: 'Movie was successfully destroyed.' }
+      format.html { redirect_to movies_url, notice: 'Evento removido com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -72,6 +72,7 @@ class MoviesController < ApplicationController
     cart = current_user.cart
     order_item = cart.order_items.find_or_create_by({movie: @movie})
     order_item.increment!(:quantity)
+    
 
     respond_to do |format|
       format.html {redirect_to cart_index_url}

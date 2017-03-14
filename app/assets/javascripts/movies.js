@@ -14,6 +14,11 @@ $(document).on('turbolinks:load', function() {
     $("#loadingModal").modal('show');
   }).on("ajax:complete", function (e, xhr, status){
     $("#loadingModal").modal('hide');
+  }).on("ajax:complete", function (e, xhr, status){
+    $("#loadingModal").window.location.replace("http://http://localhost:1234/cart");
+
+
+
   }).on("ajax:error", function (e, xhr, status, error){
     alert("ERRO! " + error);
   });

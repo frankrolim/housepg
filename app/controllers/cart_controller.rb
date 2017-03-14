@@ -37,5 +37,6 @@ class CartController < ApplicationController
     def get_order_item
       cart = current_user.cart
       @order_item = cart.order_items.where({movie_id: params[:id]}).first
+      
     end
 end
